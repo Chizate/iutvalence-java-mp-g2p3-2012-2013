@@ -1,12 +1,12 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 /**
-* 
 * @author Chizat & Salgues
 * Classe Bateau
 */
 public class Bateau {
 
+	//********** VARIBLES DE CLASSE ****************
 	/**
 	 * tableaux qui contient les positions du bateau de 5 cases, puis de 4,
 	 * 3 et 2 cases
@@ -19,53 +19,44 @@ public class Bateau {
 	/**
 	 *  taille du bateau (donc du tableau)
 	 */
-	private final int capacite5;
-	private final int capacite4;
-	private final int capacite3;
-	private final int capacite2;
+	private final static int CAPACITE5 = 5;
+	private final static int CAPACITE4 = 4;
+	private final static int CAPACITE3 = 3;
+	private final static int CAPACITE2 = 2;
 	
+	
+	//*********** Constructeur ************************
 	/**
 	 * Constructeur
 	 * @return 
 	 */
-	public Bateau(){
-		/**
-		 *  taille du bateau: ici 5 cases
-		 */
-		this.capacite5 = 5;
-		/**
-		 *  crée un bateau de 5 cases
-		 */
-		this.bateau5 = new int[this.capacite5];
+	public Bateau()
+	{
 		
 		/**
-		 *  taille du bateau: ici 4 cases
+		 *  construit un bateau de 5 cases
 		 */
-		this.capacite4= 4;
-		/**
-		 *  crée un bateau de 4 cases
-		 */
-		this.bateau4 = new int[this.capacite4];
+		this.bateau5 = new int[this.CAPACITE5];
 		
 
 		/**
-		 *  taille du bateau: ici 3 cases
+		 *  construit un bateau de 4 cases
 		 */
-		this.capacite3= 3;
-		/**
-		 *  crée un bateau de 3 cases
-		 */
-		this.bateau3 = new int[this.capacite3];
+		this.bateau4 = new int[this.CAPACITE4];
 		
 
+
 		/**
-		 *  taille du bateau: ici 2 cases
+		 *  construit un bateau de 3 cases
 		 */
-		this.capacite2= 2;
+		this.bateau3 = new int[this.CAPACITE3];
+		
+
+		
 		/**
-		 *  crée un bateau de 2 cases
+		 *  construit un bateau de 2 cases
 		 */
-		this.bateau2 = new int[this.capacite2];
+		this.bateau2 = new int[this.CAPACITE2];
 			
 	}
 }

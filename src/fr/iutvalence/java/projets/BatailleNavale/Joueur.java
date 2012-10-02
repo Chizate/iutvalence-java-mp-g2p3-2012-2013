@@ -7,7 +7,11 @@ package fr.iutvalence.java.projets.BatailleNavale;
 */
 
 public class Joueur {
-
+	//********** VARIBLES DE CLASSE ***************
+	// pseudo du joueur
 	private String pseudo;
 	
+	//******* Constructeur ************************
+	
+	//*********** METHODES ************************
 }
