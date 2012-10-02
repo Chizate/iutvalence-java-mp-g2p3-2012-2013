@@ -1,18 +1,25 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 
-// FIXME clarifier le commentaire
 /**
-* 
 * @author Chizat & Salgues
 * Classe Joueur
+* représente le joueur avec son pseudo
 */
 
 public class Joueur {
 
-	// FIXME écrire un commentaire
+	//********** VARIBLES DE CLASSE ***************
+	/**
+	 * pseudo du joueur
+	 */
 	private String pseudo;
 	
-	// FIXME constructeurs, méthodes ?
+	//******* Constructeur ************************
+	// à compléter
+	
+	//******* METHODES ****************************
+	// à compléter
+	
 	
 }

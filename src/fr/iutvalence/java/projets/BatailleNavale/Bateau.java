@@ -1,62 +1,32 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
+
 /**
 * @author Chizat & Salgues
 * Classe Bateau
+* un bateau est un tableau à une dimension de taille capa
 */
+
 public class Bateau {
-
-	//********** VARIBLES DE CLASSE ****************
-	/**
-	 * tableaux qui contient les positions du bateau de 5 cases, puis de 4,
-	 * 3 et 2 cases
-	 *  ex : [e4; e5; e6; e7 ; e8]
-	 */
-	private int[] bateau5; 
-	private int[] bateau4; 	
-	private int[] bateau3; 	
-	private int[] bateau2; 
-	/**
-	 *  taille du bateau (donc du tableau)
-	 */
-	private final static int CAPACITE5 = 5;
-	private final static int CAPACITE4 = 4;
-	private final static int CAPACITE3 = 3;
-	private final static int CAPACITE2 = 2;
 	
-	
-	//*********** Constructeur ************************
+	//********** VARIBLES DE CLASSE ***************
 	/**
-	 * Constructeur
-	 * @return 
+	 * un bateau sous forme de tableau
 	 */
-	public Bateau()
+	private int[] bateau; 
+	
+	//*********** Constructeurs *******************
+	/**
+	 * crée un nouveau tableau de taille capa
+	 * @param capa
+	 */
+	public Bateau(int capa)
 	{
-		
-		/**
-		 *  construit un bateau de 5 cases
-		 */
-		this.bateau5 = new int[this.CAPACITE5];
-		
-
-		/**
-		 *  construit un bateau de 4 cases
-		 */
-		this.bateau4 = new int[this.CAPACITE4];
-		
-
-
-		/**
-		 *  construit un bateau de 3 cases
-		 */
-		this.bateau3 = new int[this.CAPACITE3];
-		
-
-		
-		/**
-		 *  construit un bateau de 2 cases
-		 */
-		this.bateau2 = new int[this.CAPACITE2];
-			
+		this.bateau = new int[capa];
 	}
+	
+	//*********** METHODES ************************
+	// à compléter
+
 }
+
