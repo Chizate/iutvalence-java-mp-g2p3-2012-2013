@@ -1,5 +1,6 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
+// FIXME clarifier le commentaire
 /**
 * 
 * @author Chizat & Salgues
@@ -8,21 +9,32 @@ package fr.iutvalence.java.projets.BatailleNavale;
 
 public class Plateau {
 	//********** VARIBLES DE CLASSE ***************
-	
+	// FIXME corriger le commentaire
     //tableau a deux dimensions qui représente le plateau de jeu
 	private int[][] cases; 
 
+	// FIXME corriger le commentaire
 	// taille du plateau
 	private final static int CAPACITE = 10;
 	
+	// FIXME corriger le commentaire
 	 //définit l'ensemble des bateaux
 	private final BateauBis porte_avion;
+
+	// FIXME corriger le commentaire
 	private final BateauBis cuirasse;
+
+	// FIXME corriger le commentaire
 	private final BateauBis croiseur1;
-	private final BateauBis croiseur2;
-	private final BateauBis vedette;
 	
+	// FIXME corriger le commentaire
+	private final BateauBis croiseur2;
+	
+	// FIXME corriger le commentaire
+	private final BateauBis vedette;
+
 	//******* Constructeur ************************
+	// FIXME clarifier le commentaire
 	/**
 	 * Constructeur plateau
 	 */
@@ -31,7 +43,7 @@ public class Plateau {
 		int x, y;
 		//crée un plateau de 10 cases sur 10
 		this.cases = new int[this.CAPACITE][this.CAPACITE];
-		// met toutes les cases du plateau à '0' : état "rien fait"
+		// met toutes les cases du plateau Ã  '0' : état "rien fait"
 		for(x=0; x<10;x++)
 		{
 			for(y=0;y<10;y++)
