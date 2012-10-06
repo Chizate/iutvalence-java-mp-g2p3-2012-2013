@@ -1,6 +1,7 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 
+// FIXME corriger le commentaire : on doit dire à quoi correspond cette classe Joueur et par quoi un joueur est caractérisé
 /**
 * @author Chizat & Salgues
 * Classe Joueur
@@ -9,17 +10,18 @@ package fr.iutvalence.java.projets.BatailleNavale;
 
 public class Joueur {
 
-	//********** VARIBLES DE CLASSE ***************
+	//********** ATTRIBUTS ***************
 	/**
 	 * pseudo du joueur
 	 */
+	// FIXME le pseudo du joueur peut-il changer en cours de partie ?
 	private String pseudo;
 	
 	//******* Constructeur ************************
-	// à compléter
+	// FIXME à compléter
 	
 	//******* METHODES ****************************
-	// à compléter
+	// FIXME à compléter
 	
 	
 }

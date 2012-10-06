@@ -9,32 +9,44 @@ package fr.iutvalence.java.projets.BatailleNavale;
 
 import java.util.*;
 public class Plateau {
-	//********** VARIBLES DE CLASSE ***************
+	//********** ATTRIBUTS ***************
+	
+	// FIXME définir des constantes pour les valeurs possibles des éléments du tableau
     /**
      * tableau a deux dimensions qui représente le plateau de jeu
      */
 	private int[][] cases; 
+	
+	// FIXME corriger le commentaire
 	/**
 	 * taille du plateau
 	 */
 	private final static int CAPACITE = 10;
-    /**
+    
+	
+	/**
      * définit le porte avion
      */
+	// FIXME respecter les conventions d'écriture
 	private final Bateau porte_avion;
-    /**
+    
+	// FIXME est il pertinent de gérer les bateaux individuellement ?
+	/**
      * définit le cuirassé
      */
 	private final Bateau cuirasse;
+	
     /**
      * définit le croiseur1
      */
 	private final Bateau croiseur1;
-    /**
+    
+	/**
      * définit le croiseur2
      */
 	private final Bateau croiseur2;
-    /**
+    
+	/**
      * définit le vedette
      */
 	private final Bateau vedette;
@@ -68,8 +80,11 @@ public class Plateau {
 		//cree un nouveau bateau de capacité 2
 		this.vedette = new Bateau(2);
 	}
+
 	
 	//*********** METHODES ************************
+	
+	// FIXME supprimer cette méthode qui est dépendante de l'IHM (le code peut être conservé pour plus tard ailleurs)
 	/**
 	 * positionne les bateaux
 	 */

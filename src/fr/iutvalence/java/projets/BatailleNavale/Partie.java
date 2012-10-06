@@ -1,5 +1,6 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
+//FIXME corriger le commentaire : on doit dire à quoi correspond cette classe Partie et par quoi une partie est caractérisée
 /**
  * @author Chizat & Salgues
  * Classe principale Partie
@@ -8,7 +9,7 @@ package fr.iutvalence.java.projets.BatailleNavale;
 
 public class Partie {
 
-	//********** VARIBLES DE CLASSE ***************
+	//********** ATTRIBUTS ***************
 	/**
 	 * plateau des positions des bateaux du joueur1
 	 */
@@ -35,8 +36,8 @@ public class Partie {
 	private Joueur joueur2;
 	
 	//******* Constructeur ************************
-	// à compléter
+	// FIXME à compléter
 		
 	//******* METHODES ****************************
-	// à compléter
+	// FIXME à compléter
 }

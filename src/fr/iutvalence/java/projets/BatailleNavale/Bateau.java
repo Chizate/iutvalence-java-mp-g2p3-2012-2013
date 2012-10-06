@@ -1,6 +1,7 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 
+// FIXME corriger le commentaire : ici, on ne doit pas parler du tableau, juste dire à quoi sert la classe
 /**
 * @author Chizat & Salgues
 * Classe Bateau
@@ -9,13 +10,17 @@ package fr.iutvalence.java.projets.BatailleNavale;
 
 public class Bateau {
 	
-	//********** VARIBLES DE CLASSE ***************
+	//********** ATTRIBUTS ***************
+	
+	// FIXME corriger le commentaire (préciser la manière dont le bateau est représenté par le tableau)
 	/**
 	 * un bateau sous forme de tableau
 	 */
 	private int[] bateau; 
 	
 	//*********** Constructeurs *******************
+	
+	// FIXME corriger le commentaire : il faut expliquer quel bateau on obtient sans parler du tableau
 	/**
 	 * crée un nouveau tableau de taille capa
 	 * @param capa
