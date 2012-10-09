@@ -7,7 +7,6 @@ package fr.iutvalence.java.projets.BatailleNavale;
 * l'état des cases ( "rien fait", "touché pas coulé", "touché coulé" et "pas touché"
 */
 
-import java.util.*;
 public class Plateau {
 	//********** ATTRIBUTS ***************
 	
@@ -18,22 +17,22 @@ public class Plateau {
 	private int[][] cases; 
 	
 	/**
-	 * constante RIEN=0: le joueur n'a rien fait sur cette case
+	 * losqu'une case du tableau a pour valeur la constante RIEN=0: le joueur n'a rien fait sur cette case
 	 */
 	private final static int RIEN=0;
 	
 	/**
-	 * constante PAS_TOUCHE=1: la partie du bateau est intacte
+	 * losqu'une case du tableau a pour valeur la constante PAS_TOUCHE=1: la partie du bateau est intacte
 	 */
 	private final static int PAS_TOUCHE=1;
 	
 	/**
-	 * constante TOUCHE=2: la partie du bateau est touchée
+	 * losqu'une case du tableau a pour valeur la constante TOUCHE=2: la partie du bateau est touchée
 	 */
 	private final static int TOUCHE=2;
 	
 	/**
-	 * constante COULE=3: toutes les parties du bateau sont touchées, le bateau est coulé
+	 * losqu'une case du tableau a pour valeur la constante COULE=3: toutes les parties du bateau sont touchées, le bateau est coulé
 	 */
 	private final static int COULE=3;
 	

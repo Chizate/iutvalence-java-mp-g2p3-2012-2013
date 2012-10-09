@@ -1,5 +1,5 @@
 package fr.iutvalence.java.projets.BatailleNavale;
-
+import java.util.Scanner;
 
 // FIXME (fixed) corriger le commentaire : ici, on ne doit pas parler du tableau, juste dire à quoi sert la classe
 /**
@@ -35,6 +35,5 @@ public class Bateau {
 	
 	//*********** METHODES ************************
 	// à compléter
-
 }
 
