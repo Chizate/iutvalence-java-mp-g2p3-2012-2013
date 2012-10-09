@@ -1,11 +1,12 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 
-// FIXME corriger le commentaire : on doit dire à quoi correspond cette classe Joueur et par quoi un joueur est caractérisé
+// FIXME (fixed)corriger le commentaire : on doit dire à quoi correspond cette classe Joueur et par quoi un joueur est caractérisé
 /**
 * @author Chizat & Salgues
-* Classe Joueur
-* représente le joueur avec son pseudo
+* Classe Joueur crée un joueur
+* joueur est caractérisé par son pseudo
+* 
 */
 
 public class Joueur {
@@ -14,8 +15,9 @@ public class Joueur {
 	/**
 	 * pseudo du joueur
 	 */
-	// FIXME le pseudo du joueur peut-il changer en cours de partie ?
-	private String pseudo;
+	// FIXME(fixed) le pseudo du joueur peut-il changer en cours de partie ?
+	// le pseudo du joueur est définitif pour la partie
+	private static String PSEUDO;
 	
 	//******* Constructeur ************************
 	// FIXME à compléter

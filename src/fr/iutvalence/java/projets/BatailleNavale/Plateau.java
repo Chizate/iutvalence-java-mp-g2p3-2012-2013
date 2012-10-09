@@ -11,15 +11,36 @@ import java.util.*;
 public class Plateau {
 	//********** ATTRIBUTS ***************
 	
-	// FIXME définir des constantes pour les valeurs possibles des éléments du tableau
+	// FIXME(fixed) définir des constantes pour les valeurs possibles des éléments du tableau
     /**
      * tableau a deux dimensions qui représente le plateau de jeu
      */
 	private int[][] cases; 
 	
-	// FIXME corriger le commentaire
 	/**
-	 * taille du plateau
+	 * constante RIEN=0: le joueur n'a rien fait sur cette case
+	 */
+	private final static int RIEN=0;
+	
+	/**
+	 * constante PAS_TOUCHE=1: la partie du bateau est intacte
+	 */
+	private final static int PAS_TOUCHE=1;
+	
+	/**
+	 * constante TOUCHE=2: la partie du bateau est touchée
+	 */
+	private final static int TOUCHE=2;
+	
+	/**
+	 * constante COULE=3: toutes les parties du bateau sont touchées, le bateau est coulé
+	 */
+	private final static int COULE=3;
+	
+	// FIXME(fixed) corriger le commentaire
+	/**
+	 * le plateau est une grille de 10 cases sur 10
+	 * on utilise CAPACITE=10 pour créer une grille de 10 cases de larges sur 10 cases de haut
 	 */
 	private final static int CAPACITE = 10;
     
@@ -27,8 +48,8 @@ public class Plateau {
 	/**
      * définit le porte avion
      */
-	// FIXME respecter les conventions d'écriture
-	private final Bateau porte_avion;
+	// FIXME(fixed) respecter les conventions d'écriture
+	private final Bateau porteAvion;
     
 	// FIXME est il pertinent de gérer les bateaux individuellement ?
 	/**
@@ -70,7 +91,7 @@ public class Plateau {
 		}
 		
 		//cree un nouveau bateau de capacité 5
-		this.porte_avion = new Bateau(5);
+		this.porteAvion = new Bateau(5);
 		//cree un nouveau bateau de capacité 4
 		this.cuirasse = new Bateau(4);
 		//cree un nouveau bateau de capacité 3
@@ -84,82 +105,7 @@ public class Plateau {
 	
 	//*********** METHODES ************************
 	
-	// FIXME supprimer cette méthode qui est dépendante de l'IHM (le code peut être conservé pour plus tard ailleurs)
-	/**
-	 * positionne les bateaux
-	 */
-	public void Position ()
-	{
-		int a, b;
-		a=10;
+	// FIXME(fixed) supprimer cette méthode qui est dépendante de l'IHM (le code peut être conservé pour plus tard ailleurs)
+	
 		
-		Scanner y = new Scanner(System.in);
-		System.out.println("Veuillez saisir une lettre pour les ordonnées :");
-		String stry = y.nextLine();
-		char carac = stry.charAt(0);
-		
-		// converti les lettres des ordonnées en chiffres pour avoir les 
-		// chiffres qui correspondent aux cases du tableau du plateau
-		switch (carac)
-		{
-			case 'A':
-				a = 9;
-				break;
-			case 'B':
-				a= 8;
-				break;
-			case 'C':
-				a= 7;
-				break;	
-			case 'D':
-				a= 6;
-				break;
-			case 'E':
-				a= 5;
-				break;
-			case 'F':
-				a= 4;
-				break;
-			case 'G':
-				a= 3;
-				break;
-			case 'H':
-				a= 2;
-				break;
-			case 'I':
-				a= 1;
-				break;
-			case 'J':
-				a= 0;
-				break;
-		}
-			
-		while (a > 9)
-		// lettre supérieure à J
-		{
-		System.out.println("Veuillez saisir une lettre entre A et J");
-		}
-		// lettre entre A et J
-		System.out.println("Vous avez saisi : " + carac);
-		
-		
-		Scanner x = new Scanner(System.in);
-		System.out.println("Veuillez saisir un chiffre pour les abscisses :");
-		int i  = x.nextInt();
-		b=i-1;
-		while ( b > 9)
-		// chiffre supérieur à 10
-		{
-		System.out.println("Veuillez saisir un chiffre entre 1 et 10");
-		}
-		// chiffre entre 1 et 10
-		System.out.println("Vous avez saisi : " + i);
-		
-		// à compléter -> vérification cases libres
-		//				demander choix du bateau
-		//				choix "fin" du bateau
-		//				vérifier que le bateau rentre dans le plateau
-		
-		
-	}
 }

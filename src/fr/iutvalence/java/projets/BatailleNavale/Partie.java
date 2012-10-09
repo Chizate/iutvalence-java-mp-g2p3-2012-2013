@@ -1,10 +1,11 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
-//FIXME corriger le commentaire : on doit dire à quoi correspond cette classe Partie et par quoi une partie est caractérisée
+//FIXME(fixed) corriger le commentaire : on doit dire à quoi correspond cette classe Partie et par quoi une partie est caractérisée
 /**
  * @author Chizat & Salgues
  * Classe principale Partie
  * gère l'initialisation de la partie, les tours des joueurs
+ * une partie est caratérisée par 2 joueurs, 2 plateaux avec des bateaux que les joueurs positionnent
  */
 
 public class Partie {

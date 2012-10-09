@@ -1,28 +1,31 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 
-// FIXME corriger le commentaire : ici, on ne doit pas parler du tableau, juste dire à quoi sert la classe
+// FIXME (fixed) corriger le commentaire : ici, on ne doit pas parler du tableau, juste dire à quoi sert la classe
 /**
 * @author Chizat & Salgues
 * Classe Bateau
-* un bateau est un tableau à une dimension de taille capa
+* déclare un bateau
+* construit un bateau
 */
 
 public class Bateau {
 	
 	//********** ATTRIBUTS ***************
 	
-	// FIXME corriger le commentaire (préciser la manière dont le bateau est représenté par le tableau)
+	// FIXME(fixed)corriger le commentaire (préciser la manière dont le bateau est représenté par le tableau)
 	/**
 	 * un bateau sous forme de tableau
+	 * l'indice '0' du tableau est le début du bateau
+	 * l'indice capa-1 est la fin du bateau
 	 */
 	private int[] bateau; 
 	
 	//*********** Constructeurs *******************
 	
-	// FIXME corriger le commentaire : il faut expliquer quel bateau on obtient sans parler du tableau
+	// FIXME(fixed) corriger le commentaire : il faut expliquer quel bateau on obtient sans parler du tableau
 	/**
-	 * crée un nouveau tableau de taille capa
+	 * construit un bateau de taille capa
 	 * @param capa
 	 */
 	public Bateau(int capa)
