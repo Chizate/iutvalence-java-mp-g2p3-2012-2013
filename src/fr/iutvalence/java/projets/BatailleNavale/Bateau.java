@@ -1,19 +1,20 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 import java.util.Scanner;
 
-// FIXME (fixed) corriger le commentaire : ici, on ne doit pas parler du tableau, juste dire à quoi sert la classe
+// FIXME corriger le commentaire : le commentaire ici peut s'appliquer à n'importe quelle classe, sans pour autant qu'on comprenne à quoi elle sert du point de vue du modèle
 /**
-* @author Chizat & Salgues
 * Classe Bateau
 * déclare un bateau
 * construit un bateau
+* 
+* @author Chizat & Salgues
 */
 
 public class Bateau {
 	
 	//********** ATTRIBUTS ***************
 	
-	// FIXME(fixed)corriger le commentaire (préciser la manière dont le bateau est représenté par le tableau)
+	// FIXME corriger le commentaire (indiquer quelles valeurs peuvent prendre les cases du tableau, prendre un exemple)
 	/**
 	 * un bateau sous forme de tableau
 	 * l'indice '0' du tableau est le début du bateau
@@ -23,7 +24,8 @@ public class Bateau {
 	
 	//*********** Constructeurs *******************
 	
-	// FIXME(fixed) corriger le commentaire : il faut expliquer quel bateau on obtient sans parler du tableau
+	// FIXME corriger le commentaire : indiquer à quoi ressemble le bateau une fois construit 
+	// FIXME compléter la balise "@param capa" 
 	/**
 	 * construit un bateau de taille capa
 	 * @param capa
@@ -36,4 +38,6 @@ public class Bateau {
 	//*********** METHODES ************************
 	// à compléter
 }
+
+// FIXME écrire un application de test basique pour cette classe
 

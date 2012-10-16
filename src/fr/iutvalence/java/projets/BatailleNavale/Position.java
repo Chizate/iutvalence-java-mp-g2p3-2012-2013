@@ -1,5 +1,6 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
+// FIXME compléter le commentaire
 /**
  * 
  * @author chizate & Salgues
@@ -9,15 +10,17 @@ public class Position {
 
 	//****************** ATTRIBUTS ********************************
 	/**
-	 * variable x qui correspond aux abscisses d'une position
+	 * abscisse d'une position
 	 */
 	private int x;
 	
 	/**
-	 * variable y qui correspond aux ordonnées d'une position
+	 * ordonnée d'une position
 	 */
 	private int y;
 	
+	
+	// FIXME est-ce vraiment utile ? (à discuter)
 	/**
 	 * tableau de 2 cases contenant les résultats de getX() et getY()
 	 */
@@ -45,4 +48,11 @@ public class Position {
 	 */
 	private int getY()
 	{return this.y;}
+	
+	
+	// FIXME redéfinir toString
+	
+	// FIXME redéfinir equals et hashCode
+	
+	// FIXME écrire un application de test basique pour cette classe
 }

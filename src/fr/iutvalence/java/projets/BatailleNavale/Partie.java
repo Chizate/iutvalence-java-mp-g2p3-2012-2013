@@ -1,36 +1,45 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
-//FIXME(fixed) corriger le commentaire : on doit dire à quoi correspond cette classe Partie et par quoi une partie est caractérisée
 /**
- * @author Chizat & Salgues
  * Classe principale Partie
  * gère l'initialisation de la partie, les tours des joueurs
  * une partie est caratérisée par 2 joueurs, 2 plateaux avec des bateaux que les joueurs positionnent
+ * 
+ *  @author Chizat & Salgues
  */
 
 public class Partie {
 
 	//********** ATTRIBUTS ***************
 	/**
-	 * plateau des positions des bateaux du joueur1
+	 * plateau sur lequel sont placés les bateaux du joueur1
 	 */
+	// FIXME renommer l'attribut avec un nom plus évocateur
 	private Plateau plateau1j1; 
+	
 	/**
-	 * plateau des tirs effectés du joueur1
+	 * plateau sur lequel sont placés les tirs du joueur1
 	 */
+	// FIXME renommer l'attribut avec un nom plus évocateur
 	private Plateau plateau1j2; 
+	
 	/**
-	 * plateau des positions des bateaux du joueur2
+	 * plateau sur lequel sont placés les bateaux du joueur1
 	 */
+	// FIXME renommer l'attribut avec un nom plus évocateur
 	private Plateau plateau2j1; 
+	
 	/**
-	 * plateau des tirs effectués du joueur2
+	 * plateau sur lequel sont placés les tirs du joueur1
 	 */
+	// FIXME renommer l'attribut avec un nom plus évocateur
 	private Plateau plateau2j2; 
+	
 	/**
 	 * joueur 1
 	 */
 	private Joueur joueur1;
+	
 	/**
 	 * joueur 2
 	 */
