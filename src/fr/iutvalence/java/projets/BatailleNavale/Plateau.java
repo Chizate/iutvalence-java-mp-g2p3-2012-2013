@@ -10,12 +10,8 @@ package fr.iutvalence.java.projets.BatailleNavale;
 public class Plateau {
 	//********** ATTRIBUTS ***************
 	
-	// FIXME déplacer la définition des attributs après celles des constantes
-    /**
-     * tableau a deux dimensions qui représente le plateau de jeu
-     */
-	private int[][] cases; 
-	
+	// FIXME (fixed) déplacer la définition des attributs après celles des constantes
+    
 	/**
 	 * losqu'une case du plateau a pour valeur la constante RIEN=0: le joueur n'a rien fait sur cette case
 	 */
@@ -40,9 +36,14 @@ public class Plateau {
 	 * le plateau est une grille de 10 cases sur 10
 	 * 
 	 */
-	// FIXME renommer la constante, le nom est mal choisi
-	private final static int CAPACITE = 10;
+	// FIXME (fixed) renommer la constante, le nom est mal choisi
+	private final static int TAILLE = 10;
     
+	/**
+     * tableau a deux dimensions qui représente le plateau de jeu
+     */
+	private int[][] grille; 
+	
 	
 	// FIXME est il pertinent de gérer les bateaux individuellement ?
 	/**
@@ -57,7 +58,7 @@ public class Plateau {
 	private final Bateau cuirasse;
 	
     /**
-     * définit le croiseur1
+      * définit le croiseur1
      */
 	private final Bateau croiseur1;
     
@@ -71,6 +72,7 @@ public class Plateau {
      */
 	private final Bateau vedette;
 
+
 	//******* Constructeur ************************
 	/**
 	 * Constructeur plateau
@@ -79,16 +81,17 @@ public class Plateau {
 	 */
 	public Plateau()
 	{
+		
 		int x, y;
 		//crée un plateau de 10 cases sur 10
 		
-		// FIXME corriger : une constante ne s'appelle pas sur un objet mais sur la classe qui la définit
-		this.cases = new int[this.CAPACITE][this.CAPACITE];
+		// FIXME corriger : une constante ne s'appelle pas sur un objet mais sur la classe qui la définit 
+		this.grille = new int[this.TAILLE][this.TAILLE];
 		// met toutes les cases du plateau à  '0' : état "rien fait"
 		for(x=0; x<10;x++)
 		{
 			for(y=0;y<10;y++)
-				this.cases[x][y]=0;
+				this.grille[x][y]=0;
 		}
 		
 		//cree un nouveau bateau de capacité 5

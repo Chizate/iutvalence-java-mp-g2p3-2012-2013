@@ -14,26 +14,14 @@ public class Partie {
 	/**
 	 * plateau sur lequel sont placés les bateaux du joueur1
 	 */
-	// FIXME renommer l'attribut avec un nom plus évocateur
-	private Plateau plateau1j1; 
+	// FIXME (fixed)renommer l'attribut avec un nom plus évocateur
+	private Plateau plateauJoueur1; 
 	
 	/**
 	 * plateau sur lequel sont placés les tirs du joueur1
 	 */
-	// FIXME renommer l'attribut avec un nom plus évocateur
-	private Plateau plateau1j2; 
-	
-	/**
-	 * plateau sur lequel sont placés les bateaux du joueur1
-	 */
-	// FIXME renommer l'attribut avec un nom plus évocateur
-	private Plateau plateau2j1; 
-	
-	/**
-	 * plateau sur lequel sont placés les tirs du joueur1
-	 */
-	// FIXME renommer l'attribut avec un nom plus évocateur
-	private Plateau plateau2j2; 
+	// FIXME (fixed)renommer l'attribut avec un nom plus évocateur
+	private Plateau plateauJoueur2; 
 	
 	/**
 	 * joueur 1

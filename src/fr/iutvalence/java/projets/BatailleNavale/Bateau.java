@@ -14,11 +14,12 @@ public class Bateau {
 	
 	//********** ATTRIBUTS ***************
 	
-	// FIXME corriger le commentaire (indiquer quelles valeurs peuvent prendre les cases du tableau, prendre un exemple)
+	// FIXME (fixed) corriger le commentaire (indiquer quelles valeurs peuvent prendre les cases du tableau, prendre un exemple)
 	/**
 	 * un bateau sous forme de tableau
 	 * l'indice '0' du tableau est le début du bateau
 	 * l'indice capa-1 est la fin du bateau
+	 * par exemple un bateau de 5 cases sera représenté par un tableau : [0|1|2|3|4]
 	 */
 	private int[] bateau; 
 	
@@ -28,6 +29,7 @@ public class Bateau {
 	// FIXME compléter la balise "@param capa" 
 	/**
 	 * construit un bateau de taille capa
+	 * par exemple un bateau de 6 cases sera représenté par un tableau : [0|1|2|3|4|5]
 	 * @param capa
 	 */
 	public Bateau(int capa)
