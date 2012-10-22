@@ -1,10 +1,7 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
-// FIXME (fixed) compléter le commentaire
 /**
- * position des bateaux
- * contient des méthodes qui retournent x et y (abscisse et ordonnée d'une position)
- * redéfinit toString, equals et hashCode
+ * Position représentée parun couple (abscisse, ordonnée)
  * @author chizate & Salgues
  *
  */
@@ -26,7 +23,6 @@ public class Position {
 	private int y;
 	
 	
-	// FIXME (fixed) est-ce vraiment utile ? (à discuter)
 	
 	
 	//*********************** CONSTRUCTEURS *************************
@@ -52,13 +48,18 @@ public class Position {
 	}
 	
 	
-	// FIXME (fixed)redéfinir toString
+	// FIXME compléter le commentaire
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString ()
 	{
 		return "("+this.x+","+this.y+")";
 	}
 	
-	// FIXME (fixed) redéfinir equals et hashCode
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	public boolean equals (Object o)
 	{
 		if (o == null) return false;
@@ -68,6 +69,9 @@ public class Position {
 		return (this.x == temp.x) && (this.y == temp.y);
 	}
 	
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
 	public int hashCode ()
 	{
 		return this.x+this.y;

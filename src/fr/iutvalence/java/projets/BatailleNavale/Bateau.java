@@ -13,8 +13,6 @@ import java.util.Scanner;
 public class Bateau {
 	
 	//********** ATTRIBUTS ***************
-	
-	// FIXME (fixed) corriger le commentaire (indiquer quelles valeurs peuvent prendre les cases du tableau, prendre un exemple)
 	/**
 	 * un bateau sous forme de tableau
 	 * l'indice '0' du tableau est le début du bateau
@@ -25,7 +23,6 @@ public class Bateau {
 	
 	//*********** Constructeurs *******************
 	
-	// FIXME corriger le commentaire : indiquer à quoi ressemble le bateau une fois construit 
 	// FIXME compléter la balise "@param capa" 
 	/**
 	 * construit un bateau de taille capa
@@ -35,10 +32,10 @@ public class Bateau {
 	public Bateau(int capa)
 	{
 		this.bateau = new int[capa];
+		// FIXME il faut donner une valeur aux éléments du tableau
 	}
 	
 	//*********** METHODES ************************
-	// à compléter
 }
 
 // FIXME écrire un application de test basique pour cette classe

@@ -10,7 +10,6 @@ package fr.iutvalence.java.projets.BatailleNavale;
 public class Plateau {
 	//********** ATTRIBUTS ***************
 	
-	// FIXME (fixed) déplacer la définition des attributs après celles des constantes
     
 	/**
 	 * losqu'une case du plateau a pour valeur la constante RIEN=0: le joueur n'a rien fait sur cette case
@@ -36,7 +35,6 @@ public class Plateau {
 	 * le plateau est une grille de 10 cases sur 10
 	 * 
 	 */
-	// FIXME (fixed) renommer la constante, le nom est mal choisi
 	private final static int TAILLE = 10;
     
 	/**
