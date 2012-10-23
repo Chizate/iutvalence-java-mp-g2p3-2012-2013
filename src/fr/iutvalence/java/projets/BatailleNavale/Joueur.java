@@ -17,11 +17,21 @@ public class Joueur {
 	/**
 	 * pseudo du joueur
 	 */
-	// FIXME initialiser les attributs dans un constructeur
-	private final String pseudo="Joueur";
+	// FIXME (fixed) initialiser les attributs dans un constructeur
+	private final String pseudo1;
+	private final String pseudo2;
+	
 	
 	//******* Constructeur ************************
-	// FIXME à compléter
+	// FIXME (fixed) à compléter
+	
+	public Joueur()
+	{
+	
+	this.pseudo1= new String ("joueur1");	
+	this.pseudo2= new String ("joueur2");	
+		
+	}
 	
 	//******* METHODES ****************************
 	// FIXME à compléter

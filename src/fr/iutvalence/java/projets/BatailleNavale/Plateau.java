@@ -83,8 +83,8 @@ public class Plateau {
 		int x, y;
 		//crée un plateau de 10 cases sur 10
 		
-		// FIXME corriger : une constante ne s'appelle pas sur un objet mais sur la classe qui la définit 
-		this.grille = new int[this.TAILLE][this.TAILLE];
+		// FIXME (fixed) corriger : une constante ne s'appelle pas sur un objet mais sur la classe qui la définit 
+		this.grille = new int[Plateau.TAILLE][Plateau.TAILLE];
 		// met toutes les cases du plateau à  '0' : état "rien fait"
 		for(x=0; x<10;x++)
 		{

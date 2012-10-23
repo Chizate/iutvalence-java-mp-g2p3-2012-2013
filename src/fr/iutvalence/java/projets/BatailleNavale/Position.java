@@ -1,7 +1,7 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 /**
- * Position représentée parun couple (abscisse, ordonnée)
+ * Position représentée par un couple (abscisse, ordonnée)
  * @author chizate & Salgues
  *
  */
@@ -20,12 +20,18 @@ public class Position {
 	/**
 	 * ordonnée d'une position
 	 */
-	private int y;
+    private int y;
 	
 	
 	
 	
 	//*********************** CONSTRUCTEURS *************************
+    
+    public Position(int abcisse, int ordonnee)
+    {
+    	this.x = abcisse;
+    	this.y = ordonnee;
+    }
 
 
 	//************************** METHODES ***************************
@@ -33,7 +39,7 @@ public class Position {
 	 * méthode qui permet de retourner x
 	 * @return x
 	 */
-	private int getX()
+    public int getX()
 	{
 		return this.x;
 	}
@@ -42,14 +48,16 @@ public class Position {
 	 * méthode qui permet de retourner y
 	 * @return x
 	 */
-	private int getY()
+	public int getY()
 	{
 		return this.y;
 	}
 	
 	
-	// FIXME compléter le commentaire
+	// FIXME (fixed) compléter le commentaire
 	/**
+	 * redéfinition de la methode toString
+	 * retourne les coordonnées de la position sous la forme (x,y)
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString ()
