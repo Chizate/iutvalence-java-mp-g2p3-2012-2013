@@ -22,6 +22,8 @@ public class Bateau {
 	 */
 	private int[] bateau; 
 	
+	private int capacite;
+	
 	//*********** Constructeurs *******************
 	
 	// FIXME (fixed) compléter la balise "@param capa" 
@@ -40,14 +42,21 @@ public class Bateau {
 				this.bateau[a]=0;
 				// toutes les cases du bateau sont a '0' car leur état est 'RIEN' -> cf attributs de Plateau
 		}
-		
+		capacite = capa;
 	}
 
 
 	public String toString() 
 	{
 		String res="";
-		// ...remplir la chaine
+		System.out.print("[");
+		int a;
+		for (a=0; a<this.capacite-1; a++ )
+		{
+			res= res + this.bateau[a] + "|";
+		}
+		res = res + this.bateau[a];
+		res = res +"]";
 		return res;
 	}
 	

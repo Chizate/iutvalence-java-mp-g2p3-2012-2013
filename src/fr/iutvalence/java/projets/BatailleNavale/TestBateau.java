@@ -10,8 +10,6 @@ public class TestBateau {
 	public static void main (String [] args)
 	{
 		Bateau bat = new Bateau(6);
-		System.out.print("[  ");
 		System.out.print(bat);
-		System.out.print("  ]");
 	}
 }

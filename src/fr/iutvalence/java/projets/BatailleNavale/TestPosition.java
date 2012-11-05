@@ -12,9 +12,9 @@ public class TestPosition {
 	{
 
 		Position p = new Position(2,6);
-		p.getX();
-		p.getY();
-		System.out.println(p);
+		System.out.println("X= "+ p.getX());
+		System.out.println("Y= "+ p.getY());
+		System.out.println("Position = " +p);
 	
 	}
 

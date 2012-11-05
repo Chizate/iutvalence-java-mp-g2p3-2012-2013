@@ -107,6 +107,28 @@ public class Plateau {
 	
 	//*********** METHODES ************************
 	
-	// FIXME écrire un application de test basique pour cette classe
-		
+	// FIXME (fixed) écrire un application de test basique pour cette classe
+	
+	public String toString() 
+	{
+		String res="";
+		res = "    1   2   3   4   5   6   7   8   9   10 \n";
+		res = res + "    --------------------------------------- \n";
+		char lettre;
+		lettre = (int) 'A';
+		int x;
+		int y;
+		for (x=0; x<Plateau.TAILLE; x++ )
+		{
+			res = res + ((char)(lettre+x));
+			for (y=0; y < Plateau.TAILLE; y++)
+			{
+				res = res + " | " + this.grille[x][y];
+			}
+			res = res +" | \n";
+			res = res + "    --------------------------------------- \n";
+			
+		}
+	return res;
+	}
 }

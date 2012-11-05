@@ -10,7 +10,7 @@ public class TestPlateau {
 	public static void main (String [] args)
 	{
 		Plateau p = new Plateau();
-		System.out.println();
+		System.out.println(p);
 	}
 
 }
