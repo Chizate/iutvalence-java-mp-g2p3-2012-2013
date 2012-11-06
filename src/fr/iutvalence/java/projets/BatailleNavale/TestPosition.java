@@ -14,7 +14,7 @@ public class TestPosition {
 		Position p = new Position(2,6);
 		System.out.println("X= "+ p.getX());
 		System.out.println("Y= "+ p.getY());
-		System.out.println("Position = " +p);
+		System.out.println("Position = " + p);
 	
 	}
 

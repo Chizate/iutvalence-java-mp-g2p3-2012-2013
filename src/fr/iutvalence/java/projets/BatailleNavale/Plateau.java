@@ -12,24 +12,9 @@ public class Plateau {
 	
     
 	/**
-	 * losqu'une case du plateau a pour valeur la constante RIEN=0: le joueur n'a rien fait sur cette case
+	 * lorsqu'une case du plateau a pour valeur la constante RIEN=0: le joueur n'a rien fait sur cette case
 	 */
-	private final static int RIEN = 0;
-	
-	/**
-	 * losqu'une case du plateau a pour valeur la constante PAS_TOUCHE=1: la partie du bateau est intacte
-	 */
-	private final static int PAS_TOUCHE=1;
-	
-	/**
-	 * losqu'une case du plateau a pour valeur la constante TOUCHE=2: la partie du bateau est touchée
-	 */
-	private final static int TOUCHE=2;
-	
-	/**
-	 * losqu'une case du plateau a pour valeur la constante COULE=3: toutes les parties du bateau sont touchées, le bateau est coulé
-	 */
-	private final static int COULE=3;
+	public final static int RIEN = 0;
 	
 	/**
 	 * le plateau est une grille de 10 cases sur 10
@@ -40,37 +25,23 @@ public class Plateau {
 	/**
      * tableau a deux dimensions qui représente le plateau de jeu
      */
+	
 	private int[][] grille; 
+	/**
+	 * Tableau de bateaux 
+	 */
+	
+	private Bateau[] bateaux;
+	
+	/**
+	 * Nombre de bateaux
+	 */
+	private int nbBat; // = 5;
+
 	
 	
 	// FIXME est il pertinent de gérer les bateaux individuellement ?
-	/**
-     * définit le porte avion
-     */
-	private final Bateau porteAvion;
-    
 	
-	/**
-     * définit le cuirassé
-     */
-	private final Bateau cuirasse;
-	
-    /**
-      * définit le croiseur1
-     */
-	private final Bateau croiseur1;
-    
-	/**
-     * définit le croiseur2
-     */
-	private final Bateau croiseur2;
-    
-	/**
-     * définit le vedette
-     */
-	private final Bateau vedette;
-
-
 	//******* Constructeur ************************
 	/**
 	 * Constructeur plateau
@@ -79,29 +50,27 @@ public class Plateau {
 	 */
 	public Plateau()
 	{
-		
-		int x, y;
 		//crée un plateau de 10 cases sur 10
 		
 		// FIXME (fixed) corriger : une constante ne s'appelle pas sur un objet mais sur la classe qui la définit 
 		this.grille = new int[Plateau.TAILLE][Plateau.TAILLE];
 		// met toutes les cases du plateau à  '0' : état "rien fait"
-		for(x=0; x<10;x++)
+		for(int x=0; x<10;x++)
 		{
-			for(y=0;y<10;y++)
+			for(int y=0;y<10;y++)
 				this.grille[x][y]=0;
 		}
 		
-		//cree un nouveau bateau de capacité 5
-		this.porteAvion = new Bateau(5);
-		//cree un nouveau bateau de capacité 4
-		this.cuirasse = new Bateau(4);
-		//cree un nouveau bateau de capacité 3
-		this.croiseur1 = new Bateau(3);
-		//cree un nouveau bateau de capacité 3
-		this.croiseur2 = new Bateau(3);
-		//cree un nouveau bateau de capacité 2
-		this.vedette = new Bateau(2);
+		// crée le tableau de bateaux
+		nbBat=5;
+		this.bateaux = new Bateau[nbBat];
+		// initialisation: met toutes les cases en relation avec un bateau
+		this.bateaux[0] = new Bateau(2, true, );
+		this.bateaux[1] = new Bateau(3);
+		this.bateaux[2] = new Bateau(4);
+		this.bateaux[3] = new Bateau(4);
+		this.bateaux[4] = new Bateau(5);
+
 	}
 
 	
@@ -113,7 +82,7 @@ public class Plateau {
 	{
 		String res="";
 		res = "    1   2   3   4   5   6   7   8   9   10 \n";
-		res = res + "    --------------------------------------- \n";
+		res = res + "  ----------------------------------------- \n";
 		char lettre;
 		lettre = (int) 'A';
 		int x;
@@ -126,9 +95,14 @@ public class Plateau {
 				res = res + " | " + this.grille[x][y];
 			}
 			res = res +" | \n";
-			res = res + "    --------------------------------------- \n";
+			res = res + "  ----------------------------------------- \n";
 			
 		}
+		res = res + "\n\nBateau n°1: " + this.bateaux[0] +"\n";
+		res = res + "Bateau n°2: " + this.bateaux[1] +"\n";
+		res = res + "Bateau n°3: " + this.bateaux[2] +"\n";
+		res = res + "Bateau n°4: " + this.bateaux[3] +"\n";
+		res = res + "Bateau n°5: " + this.bateaux[4] +"\n";
 	return res;
 	}
 }

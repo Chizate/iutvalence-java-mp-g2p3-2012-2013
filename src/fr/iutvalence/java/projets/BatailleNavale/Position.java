@@ -24,7 +24,6 @@ public class Position {
 	
 	
 	
-	
 	//*********************** CONSTRUCTEURS *************************
     
     public Position(int abcisse, int ordonnee)
@@ -85,5 +84,5 @@ public class Position {
 		return this.x+this.y;
 	}
 	
-	// FIXME écrire un application de test basique pour cette classe
+	// FIXME (fixed) écrire un application de test basique pour cette classe
 }

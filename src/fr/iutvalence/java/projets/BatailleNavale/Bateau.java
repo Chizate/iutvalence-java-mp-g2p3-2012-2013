@@ -1,7 +1,7 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 
-// FIXME (fixed?)corriger le commentaire : le commentaire ici peut s'appliquer à n'importe quelle classe, sans pour autant qu'on comprenne à quoi elle sert du point de vue du modèle
+// FIXME (fixed) corriger le commentaire : le commentaire ici peut s'appliquer à n'importe quelle classe, sans pour autant qu'on comprenne à quoi elle sert du point de vue du modèle
 /**
 * Classe Bateau
 * déclare un bateau
@@ -13,43 +13,69 @@ package fr.iutvalence.java.projets.BatailleNavale;
 
 public class Bateau {
 	
+	//********** CONSTANTES ***************
+	/**
+	 * la partie du bateau est intacte
+	 */
+	public final static int PAS_TOUCHE=1;
+	
+	/**
+	 * la partie du bateau est touchée
+	 */
+	public final static int TOUCHE=2;
+	
+	/**
+	 * toutes les parties du bateau sont touchées, le bateau est coulé
+	 */
+	public final static int COULE=3;
+	
+	
 	//********** ATTRIBUTS ***************
 	/**
 	 * un bateau sous forme de tableau
 	 * l'indice '0' du tableau est le début du bateau
 	 * l'indice capa-1 est la fin du bateau
-	 * par exemple un bateau de 5 cases sera représenté par un tableau : [0|1|2|3|4]
 	 */
 	private int[] bateau; 
 	
+	/**
+	 * la capacité du tableau qui represente un bateau pour la redifinition de la methode toString
+	 */
 	private int capacite;
 	
-	//*********** Constructeurs *******************
+	private boolean dir;
+	private Position positionBat;
 	
-	// FIXME (fixed) compléter la balise "@param capa" 
+	//*********** Constructeurs *******************
+	 
 	/**
-	 * construit un bateau de taille capa
-	 * par exemple un bateau de 6 cases sera représenté par un tableau : [0|1|2|3|4|5]
-	 * @param capa la capacité du tableau qui represente un bateau
+	 * construit un bateau de taille capa (?)
+	 * @param capa : la taille du bateau
+	 * @param dir : un booléen pour la direction du bateau: true -> verticale; false -> horizontale
+	 * @param positionBat : position du bateau
 	 */
-	public Bateau(int capa)
+	public Bateau(int capa, boolean d, Position p)
 	{
+		this.dir=d;
+		this.positionBat=p;
+		this.capacite = capa;
 		this.bateau = new int[capa];
-		// FIXME (fixed) il faut donner une valeur aux éléments du tableau
-		int a;
-		for(a=0; a<capa;a++)
+		for(int a=0; a<this.capacite; a++)
 		{
-				this.bateau[a]=0;
-				// toutes les cases du bateau sont a '0' car leur état est 'RIEN' -> cf attributs de Plateau
+				this.bateau[a]=PAS_TOUCHE;
+				// toutes les cases du bateau sont a '1' car leur état est 'PAS_TOUCHE'
 		}
-		capacite = capa;
+
 	}
+
+
+	//*********** METHODES ************************
 
 
 	public String toString() 
 	{
 		String res="";
-		System.out.print("[");
+		res= res +"[";
 		int a;
 		for (a=0; a<this.capacite-1; a++ )
 		{
@@ -59,11 +85,5 @@ public class Bateau {
 		res = res +"]";
 		return res;
 	}
-	
-	//*********** METHODES ************************
-
-
-// FIXME écrire un application de test basique pour cette classe
-	
 
 }
