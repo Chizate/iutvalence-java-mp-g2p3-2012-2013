@@ -11,6 +11,7 @@ public class TestPlateau {
 	{
 		Plateau p = new Plateau();
 		System.out.println(p);
+		
 	}
 
 }

@@ -4,9 +4,6 @@ package fr.iutvalence.java.projets.BatailleNavale;
 // FIXME corriger le commentaire dire à quoi sert la classe, pas ce qu'elle fait.
 /**
 * Classe Bateau
-* déclare un bateau
-* construit un bateau
-* initialise l'état des bateaux à '0' -> état 'RIEN'
 * 
 * @author Chizat & Salgues
 */
@@ -29,6 +26,10 @@ public class Bateau {
 	 */
 	public final static int COULE=3;
 	
+	/**
+	 * les tir est dans l'eau
+	 */
+	public final static int DANS_LEAU=4;
 	
 	//********** ATTRIBUTS ***************
 	/**
@@ -43,15 +44,23 @@ public class Bateau {
 	 */
 	private int capacite;
 	
+	/**
+	 * la direction du bateau ( horizontale = true ou verticale = false )
+	 */
 	private boolean dir;
+	
+	/**
+	 * position de la tete du bateau
+	 */
 	private Position positionBat;
+
 	
 	//*********** Constructeurs *******************
 	 
 	/**
 	 * construit un bateau de taille capa (?)
 	 * @param capa : la taille du bateau
-	 * @param dir : un booléen pour la direction du bateau: true -> verticale; false -> horizontale
+	 * @param dir : un booléen pour la direction du bateau: true -> horizontale; false -> verticale
 	 * @param positionBat : position du bateau
 	 */
 	public Bateau(int capa, boolean d, Position p)
@@ -82,7 +91,8 @@ public class Bateau {
 			res= res + this.bateau[a] + "|";
 		}
 		res = res + this.bateau[a];
-		res = res +"]";
+		res = res +"]\n";
+		res = res + "Direction : " + this.dir + "\nPosition : " + this.positionBat;
 		return res;
 	}
 

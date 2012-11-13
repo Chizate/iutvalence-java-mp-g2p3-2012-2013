@@ -15,20 +15,20 @@ public class Position {
 	/**
 	 * abscisse d'une position
 	 */
-	private int x;
+	public int x;
 	
 	/**
 	 * ordonnée d'une position
 	 */
-    private int y;
+    public int y;
 	
 	
 	
 	//*********************** CONSTRUCTEURS *************************
     
-    public Position(int abcisse, int ordonnee)
+    public Position(int abscisse, int ordonnee)
     {
-    	this.x = abcisse;
+    	this.x = abscisse;
     	this.y = ordonnee;
     }
 
@@ -43,6 +43,15 @@ public class Position {
 		return this.x;
 	}
 
+    /**
+     * methode pour modifier x
+     * @param posX
+     */
+    public void setX(int posX)
+	{
+		this.x = posX;
+	}
+    
 	/**
 	 * méthode qui permet de retourner y
 	 * @return x
@@ -52,6 +61,15 @@ public class Position {
 		return this.y;
 	}
 	
+	/**
+	 * methode pour modifier y
+	 * @param posY
+	 */
+    public void setY(int posY)
+	{
+		this.y = posY;
+	}
+    
 	
 	/**
 	 * redéfinition de la methode toString
