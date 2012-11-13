@@ -39,9 +39,6 @@ public class Plateau {
 	private int nbBat; // = 5;
 
 	
-	
-	// FIXME est il pertinent de gérer les bateaux individuellement ?
-	
 	//******* Constructeur ************************
 	/**
 	 * Constructeur plateau
@@ -75,8 +72,6 @@ public class Plateau {
 
 	
 	//*********** METHODES ************************
-	
-	// FIXME (fixed) écrire un application de test basique pour cette classe
 	
 	public String toString() 
 	{

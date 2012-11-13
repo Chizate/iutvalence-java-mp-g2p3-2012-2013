@@ -1,6 +1,7 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 
+// FIXME si cette classe gère un joueur (ce qu'elle drevrait faire) quel est le sens des 2 attributs et de l'implementation du constructeur (à discuter)
 /**
 * Un joueur est caractérisé par son pseudo qui sera saisi en début de partie par l'utilisateur
 * le joueur va positionner ses bateaux sur son plateau 
@@ -17,13 +18,11 @@ public class Joueur {
 	/**
 	 * pseudo du joueur
 	 */
-	// FIXME (fixed) initialiser les attributs dans un constructeur
 	private final String pseudo1;
 	private final String pseudo2;
 	
 	
 	//******* Constructeur ************************
-	// FIXME (fixed) à compléter
 	
 	public Joueur()
 	{

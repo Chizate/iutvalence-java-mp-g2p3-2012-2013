@@ -1,7 +1,7 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 
-// FIXME (fixed) corriger le commentaire : le commentaire ici peut s'appliquer à n'importe quelle classe, sans pour autant qu'on comprenne à quoi elle sert du point de vue du modèle
+// FIXME corriger le commentaire dire à quoi sert la classe, pas ce qu'elle fait.
 /**
 * Classe Bateau
 * déclare un bateau

@@ -53,7 +53,6 @@ public class Position {
 	}
 	
 	
-	// FIXME (fixed) compléter le commentaire
 	/**
 	 * redéfinition de la methode toString
 	 * retourne les coordonnées de la position sous la forme (x,y)
@@ -84,5 +83,4 @@ public class Position {
 		return this.x+this.y;
 	}
 	
-	// FIXME (fixed) écrire un application de test basique pour cette classe
 }
