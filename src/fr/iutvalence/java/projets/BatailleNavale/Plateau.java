@@ -39,6 +39,7 @@ public class Plateau {
 	 */
 	private int nbBat; // = 5;
 	
+	//FIXME commentaire ?
 	private Position pos;
 	
 	//******* Constructeur ************************
@@ -107,6 +108,9 @@ public class Plateau {
 	
 	//*********** METHODES ************************
 	
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString() 
 	{
 		String res="";

@@ -1,3 +1,4 @@
+//FIXME déplacer dans un autre paquetage
 package fr.iutvalence.java.projets.BatailleNavale;
 /**
  * 
@@ -7,6 +8,9 @@ package fr.iutvalence.java.projets.BatailleNavale;
  */
 public class TestBateau {
 	
+	/**
+	 * @param args
+	 */
 	public static void main (String [] args)
 	{
 		Position pos;
