@@ -18,22 +18,36 @@ public class Joueur {
 	/**
 	 * pseudo du joueur
 	 */
-	private final String pseudo1;
-	private final String pseudo2;
+	private String pseudo;
 	
 	
 	//******* Constructeur ************************
 	
 	public Joueur()
 	{
+		this.pseudo= "";	
+	}
 	
-	this.pseudo1= new String ("joueur1");	
-	this.pseudo2= new String ("joueur2");	
-		
+	public Joueur(String nom)
+	{
+		this.pseudo= nom;	
 	}
 	
 	//******* METHODES ****************************
-	// FIXME à compléter
+	// FIXME (fixed) à compléter
 	
+	public String toString()
+	{
+		return this.pseudo;
+	}
 	
+	public String getPseuso()
+	{
+		return this.pseudo;
+	}
+	
+	public void setPseudo(String newPseudo)
+	{
+		this.pseudo = newPseudo;
+	}
 }

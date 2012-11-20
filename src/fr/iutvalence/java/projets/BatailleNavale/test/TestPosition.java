@@ -1,5 +1,8 @@
 //FIXME déplacer dans un autre paquetage
-package fr.iutvalence.java.projets.BatailleNavale;
+package fr.iutvalence.java.projets.BatailleNavale.test;
+
+import fr.iutvalence.java.projets.BatailleNavale.Position;
+
 /**
  * 
  * @author chizate & Salgues

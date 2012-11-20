@@ -54,10 +54,10 @@ public class Plateau {
 		this.grille = new int[Plateau.TAILLE][Plateau.TAILLE];
 		
 		// met toutes les cases du plateau à  '0' : état "rien fait"
-		for(int x=0; x<10;x++)
+		for(int x=0; x<TAILLE;x++)
 		{
-			for(int y=0;y<10;y++)
-				this.grille[x][y]=0;
+			for(int y=0;y<TAILLE;y++)
+				this.grille[x][y]= RIEN;
 		}
 	
 		// crée le tableau de bateaux
@@ -65,41 +65,44 @@ public class Plateau {
 		this.bateaux = new Bateau[nbBat];
 		for ( int i=0; i< 5; i++ )
 		{
-			Random abscisse = new Random(); 
-			int a = abscisse.nextInt(10);
-			Random ordonnee = new Random();
-			int o = ordonnee.nextInt(10);
-			Random direction = new Random();
-			int b = direction.nextInt(2);
+			int m;
 			int capa = 3;
 			boolean d;
-			if (b == 0) // verticale
-			{
-				d = false;
-			}
-			else
-			{
-				d = true; // horizontale
-			}
-		    pos = new Position(a, o);
-		    this.bateaux[i] = new Bateau(capa, d, pos);  
-		    this.grille[a][o]= 2;
-		    
-		    if (d == false)// verticale
-		    {
-		    	for (int m = o; m< i+2; m++)
-		    	{
-		    		this.grille[a][m]=1;
-		    	}
-		    	
-		    }
-		    else // horizontale
-		    {
-		    	for (int m = a; m< i+2; m++)
-		    	{
-		    		this.grille[m][o]=3;
-		    	}
-		    }
+			int abs;
+			int ord;
+			do {
+				Random abscisse = new Random();
+				int a = abscisse.nextInt(10);
+				Random ordonnee = new Random();
+				int o = ordonnee.nextInt(10);
+				Random direction = new Random();
+				int b = direction.nextInt(2);
+				if (b == 0) // verticale
+				{
+					d = false;
+				} else {
+					d = true; // horizontale
+				}
+				pos = new Position(a, o);
+				this.bateaux[i] = new Bateau(capa, d, pos);
+				this.grille[a][o] = 2; // positionne la tete du bateau
+				if (d == false)// verticale
+				{
+					for (m = 1; m < capa; m++) //construit le reste du bateau 
+					{
+						this.grille[a][o + m] = 1;
+					}
+
+				} else // horizontale
+				{
+					for (m = 1; m < capa; m++) // contruit le reste du bateau
+					{
+						this.grille[a + m][o] = 3;
+					}
+				}
+				abs = a;
+				ord = o;
+			} while ((!d && (ord+m >= TAILLE)) || (d && (abs+m >= TAILLE)));
 		}
 
 		
@@ -120,12 +123,17 @@ public class Plateau {
 		lettre = (int) 'A';
 		int x;
 		int y;
-		for (x=0; x<Plateau.TAILLE; x++ )
+		for (y=0; y<Plateau.TAILLE; y++ )
 		{
-			res = res + ((char)(lettre+x));
-			for (y=0; y < Plateau.TAILLE; y++)
+			res = res + ((char)(lettre+y));
+			for (x=0; x < Plateau.TAILLE; x++)
 			{
-				res = res + " | " + this.grille[x][y];
+				if (this.grille[x][y] == RIEN) 
+				{
+					res = res + " |  ";
+				}
+				else
+					res = res + " | " + this.grille[x][y];
 			}
 			res = res +" | \n";
 			res = res + "  ----------------------------------------- \n";
