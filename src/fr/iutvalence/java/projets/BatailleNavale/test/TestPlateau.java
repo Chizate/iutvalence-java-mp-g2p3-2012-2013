@@ -1,7 +1,8 @@
-//FIXME déplacer dans un autre paquetage
+//FIXME (fixed) déplacer dans un autre paquetage
 package fr.iutvalence.java.projets.BatailleNavale.test;
 
 import fr.iutvalence.java.projets.BatailleNavale.Plateau;
+import fr.iutvalence.java.projets.BatailleNavale.Position;
 
 /**
  * 
@@ -16,6 +17,8 @@ public class TestPlateau {
 		Plateau p = new Plateau();
 		System.out.println(p);
 		
-	}
+		Position testPos = new Position(3,3);
+		p.getEtatCase(testPos);
 
+	}
 }

@@ -8,24 +8,15 @@ package fr.iutvalence.java.projets.BatailleNavale;
 public class Position {
 
 	//****************** ATTRIBUTS ********************************
-	
-	//FIXME commentaire ?
-	public final static int MIN = 0;
-
-	
-	//FIXME commentaire ?
-	public final static int MAX = 9;
-
-	
 	/**
 	 * abscisse d'une position
 	 */
-	public int x;
+	private int x;
 	
 	/**
 	 * ordonnée d'une position
 	 */
-    public int y;
+    private int y;
 	
 	
 	

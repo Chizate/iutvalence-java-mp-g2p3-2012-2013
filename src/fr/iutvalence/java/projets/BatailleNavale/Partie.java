@@ -32,8 +32,21 @@ public class Partie {
 	private Joueur joueur2;
 	
 	//******* Constructeur ************************
-	// FIXME à compléter
+	/**
+	 * Constructeur Partie
+	 * crée les joueurs et leur plateaux
+	 */
+	public Partie()
+	{
+		joueur1 = new Joueur("Joueur1");
+		joueur2 = new Joueur("Joueur2");
+		plateauJoueur1 = new Plateau();
+		plateauJoueur2 = new Plateau();
+		
+	}
 		
 	//******* METHODES ****************************
 	// FIXME à compléter
+
+	
 }

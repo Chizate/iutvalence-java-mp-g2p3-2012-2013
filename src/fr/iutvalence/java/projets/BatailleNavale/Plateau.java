@@ -39,7 +39,10 @@ public class Plateau {
 	 */
 	private int nbBat; // = 5;
 	
-	//FIXME commentaire ?
+	//FIXME (fixed) commentaire ?
+	/**
+	 * position de la tete du bateau
+	 */
 	private Position pos;
 	
 	//******* Constructeur ************************
@@ -54,62 +57,95 @@ public class Plateau {
 		this.grille = new int[Plateau.TAILLE][Plateau.TAILLE];
 		
 		// met toutes les cases du plateau à  '0' : état "rien fait"
-		for(int x=0; x<TAILLE;x++)
+		for(int x=0; x<TAILLE ;x++)
 		{
-			for(int y=0;y<TAILLE;y++)
+			for(int y=0; y<TAILLE; y++)
 				this.grille[x][y]= RIEN;
 		}
 	
 		// crée le tableau de bateaux
 		nbBat=5;
 		this.bateaux = new Bateau[nbBat];
-		for ( int i=0; i< 5; i++ )
+		for ( int i=0; i< nbBat; i++ )
 		{
 			int m;
-			int capa = 3;
+			int capa = i+2;
 			boolean d;
-			int abs;
-			int ord;
-			do {
-				Random abscisse = new Random();
-				int a = abscisse.nextInt(10);
-				Random ordonnee = new Random();
-				int o = ordonnee.nextInt(10);
-				Random direction = new Random();
-				int b = direction.nextInt(2);
-				if (b == 0) // verticale
+			
+			Random abscisse = new Random();
+			int a = abscisse.nextInt(10); // a = abscisse
+			Random ordonnee = new Random();
+			int o = ordonnee.nextInt(10); // o = ordonnee
+			Random direction = new Random();
+			int b = direction.nextInt(2); // b = 0 ou b = 1
+			
+			while (TAILLE - capa <= o || TAILLE - capa <= a) 
+			{
+				o = ordonnee.nextInt(10);// change la valeur de o tant que le bateau dépasse de la grille
+				a = abscisse.nextInt(10); // change la valeur de a tant que le bateau dépasse de la grille
+			}
+				
+			if (b == 0) // verticale
+			{
+				d = false;
+			} 
+			else 
+			{
+				d = true; // horizontale
+			}
+			pos = new Position(a, o);
+			this.bateaux[i] = new Bateau(capa, d, pos);
+			this.grille[a][o] = 2; // positionne la tete du bateau
+			if (d == false)// verticale
+			{
+				for (m = 1; m < capa; m++) //construit le reste du bateau 
 				{
-					d = false;
-				} else {
-					d = true; // horizontale
+					this.grille[a][ o + m] = 1;
 				}
-				pos = new Position(a, o);
-				this.bateaux[i] = new Bateau(capa, d, pos);
-				this.grille[a][o] = 2; // positionne la tete du bateau
-				if (d == false)// verticale
+				
+				} 
+			else // horizontale
+			{
+				for (m = 1; m < capa; m++) // contruit le reste du bateau
 				{
-					for (m = 1; m < capa; m++) //construit le reste du bateau 
-					{
-						this.grille[a][o + m] = 1;
-					}
-
-				} else // horizontale
-				{
-					for (m = 1; m < capa; m++) // contruit le reste du bateau
-					{
-						this.grille[a + m][o] = 3;
-					}
+					this.grille[a + m][o] = 3;
 				}
-				abs = a;
-				ord = o;
-			} while ((!d && (ord+m >= TAILLE)) || (d && (abs+m >= TAILLE)));
+			}
 		}
-
 		
 	}
 
 	
 	//*********** METHODES ************************
+	/**
+	 * @param pos: une position
+	 * @return res: la valeur de la case pos
+	 */
+	public int getEtatCase(Position pos)
+	{
+		int res = 0;
+		int abs;
+		int ord;
+		abs = pos.getX();
+		ord = pos.getY();
+		
+		if (0 < abs && abs < 10)
+		{
+			if (0 < ord && abs < 10)
+			{
+				res = this.grille[abs][ord];
+			}
+			else
+			{
+				res = -2 ;
+			}
+		}
+		else 
+		{
+			res = -1;
+		}
+		return res;
+	}
 	
 	/**
 	 * @see java.lang.Object#toString()
@@ -144,6 +180,11 @@ public class Plateau {
 		res = res + "Bateau n°3: " + this.bateaux[2] +"\n\n";
 		res = res + "Bateau n°4: " + this.bateaux[3] +"\n\n";
 		res = res + "Bateau n°5: " + this.bateaux[4] +"\n\n";
+		Position testPos = new Position(9,9);
+		res = res + "getEtatCase = " + getEtatCase(testPos) +"\n\n";
+		res = res + testPos.getX() + " / " + testPos.getY() +"\n\n";
 	return res;
 	}
+	
+
 }

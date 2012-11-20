@@ -1,9 +1,10 @@
 package fr.iutvalence.java.projets.BatailleNavale;
 
 
-// FIXME corriger le commentaire dire à quoi sert la classe, pas ce qu'elle fait.
+// FIXME (fixed) corriger le commentaire dire à quoi sert la classe, pas ce qu'elle fait.
 /**
 * Classe Bateau
+* sert à savoir l'etat, la position de la tete, et la direction d'un bateau
 * 
 * @author Chizat & Salgues
 */
