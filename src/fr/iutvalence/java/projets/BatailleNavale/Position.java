@@ -74,7 +74,9 @@ public class Position {
 	 */
 	public String toString ()
 	{
-		return "("+this.x+","+this.y+")";
+		char lettre;
+		lettre = (int) 'A';
+		return "("+((char)(lettre+y))+","+(this.x+1)+")";
 	}
 	
 	/**

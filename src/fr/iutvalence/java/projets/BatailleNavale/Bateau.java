@@ -87,13 +87,22 @@ public class Bateau {
 		String res="";
 		res= res +"[";
 		int a;
+		String d="";
 		for (a=0; a<this.capacite-1; a++ )
 		{
 			res= res + this.bateau[a] + "|";
 		}
 		res = res + this.bateau[a];
 		res = res +"]\n";
-		res = res + "Direction : " + this.dir + "\nPosition : " + this.positionBat;
+		if (this.dir == true)
+		{
+			d ="Horizontale";
+		}
+		else
+		{
+			d= "Verticale";
+		}
+		res = res + "Direction : " + d + "\nPosition : " + this.positionBat;
 		return res;
 	}
 

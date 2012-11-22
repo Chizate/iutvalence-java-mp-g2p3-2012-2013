@@ -17,7 +17,7 @@ public class TestPlateau {
 		Plateau p = new Plateau();
 		System.out.println(p);
 		
-		Position testPos = new Position(3,3);
+		Position testPos = new Position(1,3);
 		p.getEtatCase(testPos);
 
 	}

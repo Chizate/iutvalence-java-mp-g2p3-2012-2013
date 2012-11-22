@@ -72,25 +72,21 @@ public class Plateau {
 			int capa = i+2;
 			boolean d;
 			
+
 			Random abscisse = new Random();
 			int a = abscisse.nextInt(10); // a = abscisse
 			Random ordonnee = new Random();
 			int o = ordonnee.nextInt(10); // o = ordonnee
 			Random direction = new Random();
 			int b = direction.nextInt(2); // b = 0 ou b = 1
-			
-			while (TAILLE - capa <= o || TAILLE - capa <= a) 
-			{
+			while (TAILLE - capa <= o || TAILLE - capa <= a) {
 				o = ordonnee.nextInt(10);// change la valeur de o tant que le bateau dépasse de la grille
 				a = abscisse.nextInt(10); // change la valeur de a tant que le bateau dépasse de la grille
 			}
-				
 			if (b == 0) // verticale
 			{
 				d = false;
-			} 
-			else 
-			{
+			} else {
 				d = true; // horizontale
 			}
 			pos = new Position(a, o);
@@ -100,9 +96,8 @@ public class Plateau {
 			{
 				for (m = 1; m < capa; m++) //construit le reste du bateau 
 				{
-					this.grille[a][ o + m] = 1;
+					this.grille[a][o + m] = 1;
 				}
-				
 				} 
 			else // horizontale
 			{
