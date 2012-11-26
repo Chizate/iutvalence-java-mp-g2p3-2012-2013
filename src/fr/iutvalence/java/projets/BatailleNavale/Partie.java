@@ -35,8 +35,9 @@ public class Partie {
 	/**
 	 * Constructeur Partie
 	 * crée les joueurs et leur plateaux
+	 * @throws HorsPlateauException 
 	 */
-	public Partie()
+	public Partie() throws HorsPlateauException
 	{
 		joueur1 = new Joueur("Joueur1");
 		joueur2 = new Joueur("Joueur2");
@@ -48,5 +49,23 @@ public class Partie {
 	//******* METHODES ****************************
 	// FIXME à compléter
 
+	public Etat tirer(Position pos, Plateau plateau) throws HorsPlateauException
+	{
+		Etat caseVisée = plateau.getEtatCase(pos);
+		
+		if( caseVisée == Etat.PAS_TOUCHE)
+		{
+			caseVisée = Etat.TOUCHE;
+		}
+		
+		if (caseVisée == Etat.TOUCHE)
+		{
+			
+			// getEtatBateau();
+			// a finir
+		}
+			
+		return caseVisée;
+	}
 	
 }

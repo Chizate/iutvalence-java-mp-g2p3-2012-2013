@@ -9,25 +9,20 @@ package fr.iutvalence.java.projets.BatailleNavale;
 import java.util.*;
 	
 public class Plateau {
-	//********** ATTRIBUTS ***************
 
-    
-	/**
-	 * lorsqu'une case du plateau a pour valeur la constante RIEN=0: le joueur n'a rien fait sur cette case
-	 */
-	public final static int RIEN = 0;
-	
+
 	/**
 	 * le plateau est une grille de 10 cases sur 10
 	 * 
 	 */
 	private final static int TAILLE = 10;
     
+	//********** ATTRIBUTS ***************
 	/**
      * tableau a deux dimensions qui représente le plateau de jeu
      */
 	
-	private int[][] grille; 
+	private Etat[][] grille; 
 	/**
 	 * Tableau de bateaux 
 	 */
@@ -39,70 +34,87 @@ public class Plateau {
 	 */
 	private int nbBat; // = 5;
 	
-	/**
-	 * position de la tete du bateau
-	 */
-	private Position pos;
 	
 	//******* Constructeur ************************
 	/**
 	 * Constructeur plateau
 	 * initial: toutes les cases à '0'
 	 * crée les bateaux
+	 * @throws HorsPlateauException 
 	 */
-	public Plateau()
+	public Plateau() throws HorsPlateauException
 	{
 		//crée un plateau de 10 cases sur 10
-		this.grille = new int[Plateau.TAILLE][Plateau.TAILLE];
+		this.grille = new Etat[Plateau.TAILLE][Plateau.TAILLE];
 		
 		// met toutes les cases du plateau à  '0' : état "rien fait"
 		for(int x=0; x<TAILLE ;x++)
 		{
 			for(int y=0; y<TAILLE; y++)
-				this.grille[x][y]= RIEN;
+				this.grille[x][y]= Etat.RIEN;
 		}
 	
 		// crée le tableau de bateaux
 		nbBat=5;
 		this.bateaux = new Bateau[nbBat];
 		for ( int i=0; i< nbBat; i++ )
-		{
-			int m;
+		{  
 			int capa = i+2;
-			boolean d;
-			
-
 			Random abscisse = new Random();
-			int a = abscisse.nextInt(10); // a = abscisse
+			int a = abscisse.nextInt(TAILLE); // a = abscisse
 			Random ordonnee = new Random();
-			int o = ordonnee.nextInt(10); // o = ordonnee
+			int o = ordonnee.nextInt(TAILLE); // o = ordonnee
 			Random direction = new Random();
-			int b = direction.nextInt(2); // b = 0 ou b = 1
-			while (TAILLE - capa <= o || TAILLE - capa <= a) {
-				o = ordonnee.nextInt(10);// change la valeur de o tant que le bateau dépasse de la grille
-				a = abscisse.nextInt(10); // change la valeur de a tant que le bateau dépasse de la grille
-			}
-			if (b == 0) // verticale
+			boolean dirHorizontal = direction.nextBoolean();
+			
+			
+			while (TAILLE - capa <= o || TAILLE - capa <= a)
 			{
-				d = false;
-			} else {
-				d = true; // horizontale
+				o = ordonnee.nextInt(TAILLE);// change la valeur de o tant que le bateau dépasse de la grille
+				a = abscisse.nextInt(TAILLE); // change la valeur de a tant que le bateau dépasse de la grille
 			}
-			pos = new Position(a, o);
-			this.bateaux[i] = new Bateau(capa, d, pos);
-			this.grille[a][o] = 2; // positionne la tete du bateau
-			if (d == false)// verticale
+			Position pos = new Position(a, o);
+			
+			if (!placeDispo(pos)) 
 			{
-				for (m = 1; m < capa; m++) //construit le reste du bateau 
+				if (dirHorizontal)
 				{
-					this.grille[a][o + m] = 1;
+					Position posIntermédiaire1 = new Position(a+capa,o);
+					System.out.println(posIntermédiaire1);
+					if (!placeDispo(posIntermédiaire1))
+					{
+						o = ordonnee.nextInt(TAILLE);// change la valeur de o tant que le bateau dépasse de la grille
+						a = abscisse.nextInt(TAILLE); // change la valeur de a tant que le bateau dépasse de la grille
+					}
 				}
-				} 
-			else // horizontale
-			{
-				for (m = 1; m < capa; m++) // contruit le reste du bateau
+				else
 				{
-					this.grille[a + m][o] = 3;
+					Position posIntermédiaire2 = new Position(a,o+capa);
+					if (!placeDispo(posIntermédiaire2))
+					{
+						o = ordonnee.nextInt(TAILLE);// change la valeur de o tant que le bateau dépasse de la grille
+						a = abscisse.nextInt(TAILLE); // change la valeur de a tant que le bateau dépasse de la grille
+					}
+				}
+				
+			}
+			
+			
+			this.bateaux[i] = new Bateau(capa, dirHorizontal, pos);
+			this.grille[a][o] = Etat.PAS_TOUCHE; // positionne la tete du bateau
+			if (dirHorizontal)// horizontale
+			{
+				for (int m = 1; m < capa; m++) // contruit le reste du bateau
+				{
+					this.grille[a + m][o] = Etat.PAS_TOUCHE;
+				}
+				
+				} 
+			else // verticale
+			{
+				for (int m = 1; m < capa; m++) //construit le reste du bateau 
+				{
+					this.grille[a][o + m] = Etat.PAS_TOUCHE;
 				}
 			}
 		}
@@ -114,31 +126,32 @@ public class Plateau {
 	/**
 	 * @param pos: une position
 	 * @return res: la valeur de la case pos
+     * @throws HorsPlateauException 
 	 */
-	public int getEtatCase(Position pos)
+	// FIXME (fixed) gérer les débordement 
+	public Etat getEtatCase(Position pos) throws HorsPlateauException
 	{
-		int res = 0;
-		int abs;
-		int ord;
-		abs = pos.getX();
-		ord = pos.getY();
+		int abs = pos.getX();
+		int ord = pos.getY();
 		
-		if (0 < abs && abs < 10)
+		if (abs < 0 || abs >= TAILLE || ord < 0 || ord >= TAILLE )
 		{
-			if (0 < ord && abs < 10)
-			{
-				res = this.grille[abs][ord];
-			}
-			else
-			{
-				res = -2 ;
-			}
+			throw new HorsPlateauException();
 		}
-		else 
-		{
-			res = -1;
-		}
-		return res;
+		
+			return this.grille[abs][ord];
+
+	}
+
+
+	/**
+	 * @param pos : une position
+	 * @return un booléen: true = libre, false = non libre
+	 * @throws HorsPlateauException 
+	 */
+	public boolean placeDispo(Position pos) throws HorsPlateauException
+	{
+		return (this.getEtatCase(pos) == Etat.RIEN);
 	}
 	
 	/**
@@ -158,12 +171,12 @@ public class Plateau {
 			res = res + ((char)(lettre+y));
 			for (x=0; x < Plateau.TAILLE; x++)
 			{
-				if (this.grille[x][y] == RIEN) 
+				if (this.grille[x][y] == Etat.RIEN) 
 				{
 					res = res + " |  ";
 				}
 				else
-					res = res + " | " + this.grille[x][y];
+					res = res + " | " + "X";
 			}
 			res = res +" | \n";
 			res = res + "  ----------------------------------------- \n";
@@ -175,7 +188,12 @@ public class Plateau {
 		res = res + "Bateau n°4: " + this.bateaux[3] +"\n\n";
 		res = res + "Bateau n°5: " + this.bateaux[4] +"\n\n";
 		Position testPos = new Position(9,9);
-		res = res + "getEtatCase = " + getEtatCase(testPos) +"\n\n";
+		res = res + "getEtatCase = ";
+		try {
+			getEtatCase(testPos);
+		}
+		catch (HorsPlateauException e){}
+		res = res + "\n\n";
 		res = res + testPos.getX() + " / " + testPos.getY() +"\n\n";
 	return res;
 	}

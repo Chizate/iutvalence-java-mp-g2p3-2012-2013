@@ -59,7 +59,14 @@ public class Bateau {
 
 
 	//*********** METHODES ************************
-
+	/**
+	 * etat du bateau 
+	 * @param bateau
+	 */
+	public Etat[] getEtatBateau()
+	{
+		return this.bateau;
+	}
 
 	public String toString() 
 	{
