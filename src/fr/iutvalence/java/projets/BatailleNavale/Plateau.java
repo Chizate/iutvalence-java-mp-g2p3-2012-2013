@@ -39,7 +39,6 @@ public class Plateau {
 	 */
 	private int nbBat; // = 5;
 	
-	//FIXME (fixed) commentaire ?
 	/**
 	 * position de la tete du bateau
 	 */
