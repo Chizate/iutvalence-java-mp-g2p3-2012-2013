@@ -10,26 +10,6 @@ package fr.iutvalence.java.projets.BatailleNavale;
 
 public class Bateau {
 	
-	//********** CONSTANTES ***************
-	/**
-	 * la partie du bateau est intacte
-	 */
-	public final static int PAS_TOUCHE=1;
-	
-	/**
-	 * la partie du bateau est touchée
-	 */
-	public final static int TOUCHE=2;
-	
-	/**
-	 * toutes les parties du bateau sont touchées, le bateau est coulé
-	 */
-	public final static int COULE=3;
-	
-	/**
-	 * les tir est dans l'eau
-	 */
-	public final static int DANS_LEAU=4;
 	
 	//********** ATTRIBUTS ***************
 	/**
@@ -37,7 +17,7 @@ public class Bateau {
 	 * l'indice '0' du tableau est le début du bateau
 	 * l'indice capa-1 est la fin du bateau
 	 */
-	private int[] bateau; 
+	private Etat[] bateau; 
 	
 	/**
 	 * la capacité du tableau qui represente un bateau pour la redifinition de la methode toString
@@ -68,10 +48,10 @@ public class Bateau {
 		this.dir=d;
 		this.positionBat=p;
 		this.capacite = capa;
-		this.bateau = new int[capa];
+		this.bateau = new Etat[capa];
 		for(int a=0; a<this.capacite; a++)
 		{
-				this.bateau[a]=PAS_TOUCHE;
+				this.bateau[a]=Etat.PAS_TOUCHE;
 				// toutes les cases du bateau sont a '1' car leur état est 'PAS_TOUCHE'
 		}
 
