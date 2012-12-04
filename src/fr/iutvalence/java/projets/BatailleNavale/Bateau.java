@@ -67,6 +67,34 @@ public class Bateau {
 	{
 		return this.bateau;
 	}
+	
+	/**
+	 * 
+	 * @param bat: un bateau
+	 * @return tab: un tableau avec les positions des cases du bateau
+	 */
+	public Position[] tabPositions()
+	{
+		Position[] tab = new Position[this.capacite];
+		for (int i =0; i< this.capacite; i++)
+		{
+			int X = this.positionBat.getX();
+			int Y = this.positionBat.getY();
+			if (this.dir) //horizontal
+			{
+				for(int a=0; a<this.capacite; a++)
+				{
+					tab[a]= ; // à finir
+					X++;
+				}
+			}
+			else //verticale
+			{
+				
+			}
+		}
+		return tab;
+	}
 
 	public String toString() 
 	{

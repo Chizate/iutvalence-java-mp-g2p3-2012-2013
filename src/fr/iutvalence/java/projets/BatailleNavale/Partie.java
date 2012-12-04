@@ -56,14 +56,9 @@ public class Partie {
 		if( caseVisée == Etat.PAS_TOUCHE)
 		{
 			caseVisée = Etat.TOUCHE;
-		}
-		
-		if (caseVisée == Etat.TOUCHE)
-		{
 			
-			// getEtatBateau();
-			// a finir
 		}
+
 			
 		return caseVisée;
 	}

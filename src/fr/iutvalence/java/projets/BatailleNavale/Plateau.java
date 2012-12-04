@@ -39,7 +39,7 @@ public class Plateau {
 	 * 
 	 * @throws HorsPlateauException
 	 */
-	public Plateau() throws HorsPlateauException {
+	public Plateau() {
 		// crée un plateau de 10 cases sur 10
 		this.grille = new Etat[Plateau.TAILLE][Plateau.TAILLE];
 
@@ -52,66 +52,73 @@ public class Plateau {
 		// crée le tableau de bateaux
 		nbBat = 5;
 		this.bateaux = new Bateau[nbBat];
+
+		// generateur nombre aléatoire
+		Random gna = new Random();
+
+		// Placer tous les bateaux
 		for (int i = 0; i < nbBat; i++) {
-			int capa = i + 2;
-			Random abscisse = new Random();
-			int a = abscisse.nextInt(TAILLE); // a = abscisse
-			Random ordonnee = new Random();
-			int o = ordonnee.nextInt(TAILLE); // o = ordonnee
-			Random direction = new Random();
-			boolean dirHorizontal = direction.nextBoolean();
+			while (true) {
+				int capa = i + 2;
+				int a = gna.nextInt(TAILLE); // a = abscisse
+				int o = gna.nextInt(TAILLE); // o = ordonnee
+				boolean dirHorizontal = gna.nextBoolean();
+				Position pos = new Position(a, o);
+				if (!placeDispo(pos))
+					continue;
 
-			while (TAILLE - capa <= o || TAILLE - capa <= a) {
-				o = ordonnee.nextInt(TAILLE);// change la valeur de o tant que
-												// le bateau dépasse de la
-												// grille
-				a = abscisse.nextInt(TAILLE); // change la valeur de a tant que
-												// le bateau dépasse de la
-												// grille
-			}
-			Position pos = new Position(a, o);
-
-			if (!placeDispo(pos)) {
+				// La tete du bateau est disponible
 				if (dirHorizontal) {
-					Position posIntermédiaire1 = new Position(a + capa, o);
-					System.out.println(posIntermédiaire1);
-					if (!placeDispo(posIntermédiaire1)) {
-						o = ordonnee.nextInt(TAILLE);// change la valeur de o
-														// tant que le bateau
-														// dépasse de la grille
-						a = abscisse.nextInt(TAILLE); // change la valeur de a
-														// tant que le bateau
-														// dépasse de la grille
+					// on regarde si le bateau à la place ou 
+					// si il va en chevaucher un autre
+
+					boolean chevauchement = false;
+
+					for (int b = 1; b < capa; b++) {
+						if (!placeDispo(new Position(a + b, o))) {
+							chevauchement = true;
+							break;
+						}
 					}
-				} else {
-					Position posIntermédiaire2 = new Position(a, o + capa);
-					if (!placeDispo(posIntermédiaire2)) {
-						o = ordonnee.nextInt(TAILLE);// change la valeur de o
-														// tant que le bateau
-														// dépasse de la grille
-						a = abscisse.nextInt(TAILLE); // change la valeur de a
-														// tant que le bateau
-														// dépasse de la grille
+					if (chevauchement)
+						continue;
+
+				}
+
+				else {
+					boolean chevauchement = false;
+
+					for (int b = 1; b < capa; b++) {
+						if (!placeDispo(new Position(a, o+b))) {
+							chevauchement = true;
+							break;
+						}
+					}
+					if (chevauchement)
+						continue;
+
+				}
+
+				this.bateaux[i] = new Bateau(capa, dirHorizontal, pos);
+				this.grille[a][o] = Etat.PAS_TOUCHE; // positionne la tete du
+														// bateau
+				if (dirHorizontal)// horizontale
+				{
+					for (int m = 1; m < capa; m++) // contruit le reste du
+													// bateau
+					{
+						this.grille[a + m][o] = Etat.PAS_TOUCHE;
+					}
+
+				} else // verticale
+				{
+					for (int m = 1; m < capa; m++) // construit le reste du
+													// bateau
+					{
+						this.grille[a][o + m] = Etat.PAS_TOUCHE;
 					}
 				}
-
-			}
-
-			this.bateaux[i] = new Bateau(capa, dirHorizontal, pos);
-			this.grille[a][o] = Etat.PAS_TOUCHE; // positionne la tete du bateau
-			if (dirHorizontal)// horizontale
-			{
-				for (int m = 1; m < capa; m++) // contruit le reste du bateau
-				{
-					this.grille[a + m][o] = Etat.PAS_TOUCHE;
-				}
-
-			} else // verticale
-			{
-				for (int m = 1; m < capa; m++) // construit le reste du bateau
-				{
-					this.grille[a][o + m] = Etat.PAS_TOUCHE;
-				}
+				break;
 			}
 		}
 
@@ -142,8 +149,13 @@ public class Plateau {
 	 * @return un booléen: true = libre, false = non libre
 	 * @throws HorsPlateauException
 	 */
-	public boolean placeDispo(Position pos) throws HorsPlateauException {
-		return (this.getEtatCase(pos) == Etat.RIEN);
+	public boolean placeDispo(Position pos) 
+	{
+		try {
+			return (this.getEtatCase(pos) == Etat.RIEN);
+		} catch (HorsPlateauException e) {
+			return false;
+		}
 	}
 
 	/**
@@ -174,14 +186,7 @@ public class Plateau {
 		res = res + "Bateau n°3: " + this.bateaux[2] + "\n\n";
 		res = res + "Bateau n°4: " + this.bateaux[3] + "\n\n";
 		res = res + "Bateau n°5: " + this.bateaux[4] + "\n\n";
-		Position testPos = new Position(9, 9);
-		res = res + "getEtatCase = ";
-		try {
-			getEtatCase(testPos);
-		} catch (HorsPlateauException e) {
-		}
 		res = res + "\n\n";
-		res = res + testPos.getX() + " / " + testPos.getY() + "\n\n";
 		return res;
 	}
 
